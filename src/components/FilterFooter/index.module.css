@@ -1,0 +1,24 @@
+.root {
+    margin-top: 20px;
+}
+.btn {
+    margin: 0 10px;
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 8px;
+    font-size: 18px;
+    text-align: center;
+}
+.cancel {
+    flex: 1;
+    background-color: white;
+    border: 1px solid rgb(12, 151, 133);
+    color: rgb(12, 151, 133);
+}
+.ok {
+    flex: 1;
+    background-color:  rgb(12, 151, 133);
+    border: 1px solid rgb(212, 209, 209);
+    color: white;
+}

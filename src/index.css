@@ -1,0 +1,29 @@
+#root, .App {
+  height: 100%;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Microsoft YaHei';
+  background-color: #fff;
+  color: #333;
+}
+
+* {
+  box-sizing: border-box;
+  touch-action: pan-y;
+}
+
+h1,h2, h3, p, ul dd{
+  margin: 0;
+}
+
+/* 去除小圆点 */
+ul {
+  list-style: none;
+}

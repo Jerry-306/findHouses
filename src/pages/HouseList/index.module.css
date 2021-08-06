@@ -1,0 +1,26 @@
+.root {
+    
+}
+
+/*顶部导航栏样式*/
+.header {
+    height: 45px;
+    padding: 0 10px;
+    background-color: #f6f5f6;
+}
+.header :global(.icon-back) {
+    font-size: 16px;
+    color: rgb(12, 168, 147);
+}
+/*覆盖 SearchHeader 组件样式*/
+.searchHeader {
+    position: relative;
+    top: 0;
+    padding: 0;
+}
+.searchHeader :global(.icon-map) {
+    color: rgb(12, 168, 147);
+}
+.searchHeader :global(.serch) {
+    height: 30px;
+}
