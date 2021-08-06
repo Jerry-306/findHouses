@@ -50,6 +50,61 @@ export default class Filter extends Component {
         })
 
     }
+
+    // 取消（隐藏）对话框
+    onCancel = (type) => {
+        const {selectedValues, titleSelectedStatus} = this.state;
+        let newTitleSelectedStatus = {...titleSelectedStatus};
+
+        const selectedVal = selectedValues[type];
+        if ( type === 'area' && (selectedVal.length !==2 || selectedVal[0] !== 'area') ) {
+            newTitleSelectedStatus[type] = true;
+        } else if ( type === 'mode' && selectedVal[0] !== 'null') {
+            newTitleSelectedStatus[type] = true;
+        } else if (type === 'price' && selectedVal[0] !== 'null') {
+            newTitleSelectedStatus[type] = true;
+        } else if ( type === 'more' && selectedVal.length !== 0 ) {
+            newTitleSelectedStatus[type] = true;
+        } else {
+            newTitleSelectedStatus[type] = false;
+        }
+
+        this.setState({
+            openType: '',
+            titleSelectedStatus: newTitleSelectedStatus
+        })
+    }
+    
+    // 确定
+    onSave = (type, value) => {
+        // 判断标题选中状态
+        const { titleSelectedStatus } = this.state;
+        let newTitleSelectedStatus = {...titleSelectedStatus};
+
+        const selectedVal = value;
+
+        if ( type === 'area' && (selectedVal.length !==2 || selectedVal[0] !== 'area') ) {
+            newTitleSelectedStatus[type] = true;
+        } else if ( type === 'mode' && selectedVal[0] !== 'null') {
+            newTitleSelectedStatus[type] = true;
+        } else if (type === 'price' && selectedVal[0] !== 'null') {
+            newTitleSelectedStatus[type] = true;
+        } else if ( type === 'more' && selectedVal.length !== 0 ) {
+            newTitleSelectedStatus[type] = true;
+        } else {
+            newTitleSelectedStatus[type] = false;
+        }
+
+        this.setState({
+            openType: '',
+            titleSelectedStatus: newTitleSelectedStatus,
+            selectedValues: {
+                // ES6 语法 this.state.selectedValues[type] 的属性值会覆盖之前 [type] 对应的属性值
+                ...this.state.selectedValues,
+                [type]: value
+            }
+        })
+    }
     // 改变标题颜色
     onTitleClick = (type) => {
         const {selectedValues, titleSelectedStatus} = this.state;
@@ -72,8 +127,8 @@ export default class Filter extends Component {
                 newTitleSelectedStatus[key] = true;
             } else if (key === 'price' && selectedVal[0] !== 'null') {
                 newTitleSelectedStatus[key] = true;
-            } else if ( key === 'more' ) {
-
+            } else if ( key === 'more' && selectedVal.length !== 0 ) {
+                newTitleSelectedStatus[key] = true;
             } else {
                 newTitleSelectedStatus[key] = false;
             }
@@ -122,25 +177,32 @@ export default class Filter extends Component {
         }
     }
 
-    // 取消（隐藏）对话框
-    onCancel = () => {
-        this.setState({
-            openType: ''
-        })
-    }
+    // 渲染 FilterMore 组件方法
+    renderFilterMore () {
+        //  characteristic, floor, oriented, roomType
+        const { openType, 
+                selectedValues,
+                filtersData: {
+                    characteristic, 
+                    floor, 
+                    oriented, 
+                    roomType
+                }} = this.state;
 
-    // 确定
-    onSave = (type, value) => {
-        this.setState({
-            openType: '',
-            selectedValues: {
-                // ES6 语法 this.state.selectedValues[type] 的属性值会覆盖之前 [type] 对应的属性值
-                ...this.state.selectedValues,
-                [type]: value
-            }
-        })
+        const data = {characteristic, floor, oriented, roomType};
+        const defaultValues = selectedValues.more;
+        if ( openType === 'more' ) {
+            return <FilterMore 
+                        data={data} 
+                        defaultValues={defaultValues}
+                        type={openType} 
+                        onSave={this.onSave}
+                        onCancel={this.onCancel}
+                    />
+        } else {
+            return null
+        }
     }
-
 
     render() {
         const {titleSelectedStatus, openType} = this.state;
@@ -149,7 +211,7 @@ export default class Filter extends Component {
                 {/* 遮罩层组件 */}
                 {
                     openType === 'area' || openType === 'mode' || openType === 'price'
-                    ? <div className={styles.mask} onClick={this.onCancel} />
+                    ? <div className={styles.mask} onClick={ () => this.onCancel(openType)} />
                     : null
                 }
 
@@ -165,7 +227,7 @@ export default class Filter extends Component {
                     {this.renderFilterPicker()}
 
                     {/* 最后一个菜单对应内容 */}
-                    {/* <FilterMore /> */}
+                    {this.renderFilterMore()}
                 </div>
             </div>
         )

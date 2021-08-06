@@ -1,0 +1,36 @@
+.root {
+    height: 100%;
+    width: 100%;
+}
+.tags {
+
+}
+.name {
+    height: 40px;
+    padding-left: 20px;
+    color: #333;
+    font-size: 18px;
+    line-height: 40px;
+}
+.child {
+    border-bottom: 2px solid #e5e6e5;
+}
+.tag{
+    display: inline-block;
+    margin: 10px 0 10px 12px;
+    border: 1px solid rgb(12, 151, 133);
+    color:white;
+    width: 80px;
+    height: 40px;
+    background-color: white;
+    color: #333;
+    text-align: center;
+    line-height: 40px;
+    font-size: 15px;
+    border-radius: 6px;
+
+}
+.tagActive {
+    background-color:rgb(12, 151, 133);
+    color:white;
+}

@@ -10,12 +10,12 @@ export default class FilterFooter extends Component {
         cancelText: PropTypes.string,
         okText: PropTypes.string,
         onCancel: PropTypes.func.isRequired,
-        onOK: PropTypes.func.isRequired,
+        onOk: PropTypes.func.isRequired,
         className: PropTypes.string
     }
     
     render() {
-        const {cancelText, okText, onCancel, onOK, className} = this.props;
+        const {cancelText, okText, onCancel, onOk, className} = this.props;
         return (
             <Flex className={[styles.root, className ||''].join(' ')}>
                 {/* 取消按钮 */}
@@ -24,7 +24,7 @@ export default class FilterFooter extends Component {
                 </span>
 
                 {/* 确定按钮 */}
-                <span className={[styles.btn, styles.ok].join(' ')} onClick={onOK}>
+                <span className={[styles.btn, styles.ok].join(' ')} onClick={onOk}>
                     {okText ? okText : '确定'}
                 </span>
             </Flex>

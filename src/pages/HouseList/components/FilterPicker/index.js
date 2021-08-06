@@ -16,7 +16,7 @@ export default class FilterPicker extends Component {
             <>
                 <PickerView data={data} value={this.state.value} cols={cols}
                 onChange={ value => this.setState({value})}/>
-                <FilterFooter onCancel={() => onCancel()} onOK={() => onSave(type, this.state.value)} />
+                <FilterFooter onCancel={() => onCancel(type)} onOk={() => onSave(type, this.state.value)} />
             </>
         )
     }
