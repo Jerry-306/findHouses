@@ -1,7 +1,6 @@
 .root {
     height: 40px;
     border-bottom: 1px solid rgb(173, 168, 168);
-    border-right: 2px solid rgb(173, 168, 168);;
 }
 .dropdown {
     align-items: center;

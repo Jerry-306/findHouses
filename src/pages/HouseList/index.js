@@ -7,6 +7,8 @@ import SearchHeader from '../../components/SearchHeader'
 import Filter from './components/Filter'
 // 导入房屋列表组件
 import HouseItem from '../../components/HouseItem'
+// 导入吸顶组件
+import Sticky from '../../components/Sticky'
 
 import API from '../../utils/api'
 
@@ -119,7 +121,9 @@ export default class HouseList extends Component {
                 </Flex>
 
                 {/* 分选栏 */}
-                <Filter onFilter={this.onFilter} />
+                <Sticky height={40}>
+                    <Filter onFilter={this.onFilter} />
+                </Sticky>
 
                 {/* 房屋列表 */}
                 <div className={styles.houseItems}>

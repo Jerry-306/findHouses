@@ -246,7 +246,7 @@ export default class Filter extends Component {
             <div className={styles.root}>
                 {/* 遮罩层组件 */}
                 {
-                    openType === 'area' || openType === 'mode' || openType === 'price'
+                    openType === 'area' || openType === 'mode' || openType === 'price'|| openType === 'more'
                     ? <div className={styles.mask} onClick={ () => this.onCancel(openType)} />
                     : null
                 }

@@ -1,27 +1,31 @@
 .root {
+    z-index: 1;
+    height: 100%;
+    background-color: white;
 }
 
 .name {
-    height: 40px;
+    height: 35px;
     padding-left: 20px;
     color: #333;
     font-size: 18px;
-    line-height: 40px;
+    line-height: 35px;
 }
 .child {
-    border-bottom: 2px solid #e5e6e5;
+    border-bottom: 2px solid #9aecd4;
+    margin-top: 10px;
 }
 .tag{
     display: inline-block;
-    margin: 10px 0 10px 12px;
+    margin: 0 0 10px 12px;
     border: 1px solid rgb(12, 151, 133);
     color:white;
     width: 80px;
-    height: 40px;
+    height: 35px;
     background-color: white;
     color: #333;
     text-align: center;
-    line-height: 40px;
+    line-height: 35px;
     font-size: 15px;
     border-radius: 6px;
 
