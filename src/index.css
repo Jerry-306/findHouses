@@ -19,11 +19,14 @@ html, body {
   touch-action: pan-y;
 }
 
-h1,h2, h3, p, ul dd{
+h1,h2, h3, p, ul{
   margin: 0;
 }
 
 /* 去除小圆点 */
 ul {
   list-style: none;
+}
+.body-fixed {
+  overflow: hidden;
 }

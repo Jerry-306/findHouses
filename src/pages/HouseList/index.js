@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Flex} from 'antd-mobile'
+import {Flex, Toast} from 'antd-mobile'
 import {List, AutoSizer, WindowScroller, InfiniteLoader} from 'react-virtualized'
 // 导入搜素导航栏
 import SearchHeader from '../../components/SearchHeader'
@@ -9,6 +9,9 @@ import Filter from './components/Filter'
 import HouseItem from '../../components/HouseItem'
 // 导入吸顶组件
 import Sticky from '../../components/Sticky'
+// 导入没有房源提示组件
+import NoHouse from '../../components/NoHouse'
+import {getCurrentCity} from '.././../utils/index'
 
 import API from '../../utils/api'
 
@@ -17,13 +20,13 @@ import { BASE_URL} from '../../utils/url'
 // 导入样式
 import styles from './index.module.css'
 
-// 从本地存储中解构出当前城市名称
-const {label, value} = JSON.parse(localStorage.getItem('zfy_city'))
-
 export default class HouseList extends Component {
+    labei = '';
+    value = '';
     state = {
-        list: [],
-        count: 0
+        list: [],   // 房源数据
+        count: 0,   // 房源数量
+        isLoading: false   // 房源数据是否正在加载
     }
 
     filters = {};
@@ -32,24 +35,38 @@ export default class HouseList extends Component {
     onFilter = (filters) => {
         this.filters = filters;
         this.searchHouseList();
+        // 点击确定按钮时， 页面回到顶部
+        window.scrollTo(0, 0);
     }
     
     // 获取房屋列表数据
     async searchHouseList () {
+        this.setState({
+            isLoading: true
+        })
+
+        Toast.loading('加载中……', 0, null, false);
+
         const res = await API.get('/houses', {
             params: {
-                cityId: value,
+                cityId: this.value,
                 ...this.filters,
                 start: 1,
                 end:30
             }
         });
+
         const {list, count} = res.data.body;
         this.setState({
             list,
-            count
-        })
-
+            count,
+            isLoading: false
+        });
+         
+        Toast.hide();
+        if (count !== 0) {
+            Toast.info(`共找到 ${count} 套房源`, 2, null, false);
+        } 
     } 
 
     // List组件渲染每一行的方法：
@@ -83,6 +100,45 @@ export default class HouseList extends Component {
         )
     }
 
+    // 渲染列表项
+    renderHouseItem () {
+        const {count, isLoading} = this.state;
+        if (count === 0 && !isLoading) {
+            return <NoHouse>没有找到合适房源，换个条件试试吧 ~ ~</NoHouse>
+        }
+
+        return (
+            <InfiniteLoader
+                isRowLoaded={this.isRowLoaded}
+                loadMoreRows={this.loadMoreRows}
+                rowCount={ count }
+            >
+                { ({ onRowsRendered, registerChild }) => (
+                <WindowScroller>
+                    { ({height, isScrolling, scrollTop}) => (
+                        <AutoSizer>
+                            { ( {width} ) => (
+                                <List
+                                onRowsRendered={onRowsRendered}
+                                ref={registerChild}
+                                autoHeight
+                                width={width}  // 视口宽度
+                                height={height}  // 视口高度
+                                rowCount={ count } // 行数
+                                rowHeight={120}  // 行高
+                                rowRenderer={this.renderHouseList}  // 渲染每一行
+                                isScrolling={isScrolling}
+                                scrollTop={scrollTop}
+                                />
+                            )}
+                        </AutoSizer>
+                    ) }
+                </WindowScroller>
+                )}
+            </InfiniteLoader>
+        )
+    }
+
     // 判断列表中每一行数据是否加载完成
     isRowLoaded = ({ index }) => {
         return !!this.state.list[index]
@@ -93,7 +149,7 @@ export default class HouseList extends Component {
         return new Promise ( resolve => {
             API.get('/houses', {
                 params: {
-                    cityId: value,
+                    cityId: this.value,
                     ...this.filters,
                     start: startIndex,
                     end: stopIndex
@@ -106,8 +162,11 @@ export default class HouseList extends Component {
         })
     }
 
-    componentDidMount () {
+    async componentDidMount () {
         this.searchHouseList();
+        const {label, value} = await getCurrentCity();
+        this.label = label;
+        this.value = value;
     }
 
     render() {
@@ -117,7 +176,7 @@ export default class HouseList extends Component {
                 {/* 搜索导航栏 */}
                 <Flex className={styles.header}>
                     <i className="iconfont icon-back" onClick={() => this.props.history.goBack()} />
-                    <SearchHeader currentCity={label} className={styles.searchHeader}/>
+                    <SearchHeader currentCity={this.label} className={styles.searchHeader}/>
                 </Flex>
 
                 {/* 分选栏 */}
@@ -127,34 +186,7 @@ export default class HouseList extends Component {
 
                 {/* 房屋列表 */}
                 <div className={styles.houseItems}>
-                    <InfiniteLoader
-                        isRowLoaded={this.isRowLoaded}
-                        loadMoreRows={this.loadMoreRows}
-                        rowCount={ count }
-                    >
-                        { ({ onRowsRendered, registerChild }) => (
-                        <WindowScroller>
-                            { ({height, isScrolling, scrollTop}) => (
-                                <AutoSizer>
-                                    { ( {width} ) => (
-                                        <List
-                                        onRowsRendered={onRowsRendered}
-                                        ref={registerChild}
-                                        autoHeight
-                                        width={width}  // 视口宽度
-                                        height={height}  // 视口高度
-                                        rowCount={ count } // 行数
-                                        rowHeight={120}  // 行高
-                                        rowRenderer={this.renderHouseList}  // 渲染每一行
-                                        isScrolling={isScrolling}
-                                        scrollTop={scrollTop}
-                                        />
-                                    )}
-                                </AutoSizer>
-                            ) }
-                        </WindowScroller>
-                        )}
-                    </InfiniteLoader>
+                    {this.renderHouseItem()}
                 </div>
             </div>
         )

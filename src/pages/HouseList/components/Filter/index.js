@@ -39,6 +39,7 @@ export default class Filter extends Component {
 
     componentDidMount () {
         this.getFiltersData();
+        this.htmlBody = document.body;
     }
 
     async getFiltersData () {
@@ -53,6 +54,7 @@ export default class Filter extends Component {
 
     // 取消（隐藏）对话框
     onCancel = (type) => {
+        this.htmlBody.className = '';
         const {selectedValues, titleSelectedStatus} = this.state;
         let newTitleSelectedStatus = {...titleSelectedStatus};
 
@@ -77,6 +79,7 @@ export default class Filter extends Component {
     
     // 确定
     onSave = (type, value) => {
+        this.htmlBody.className = '';
         // 判断标题选中状态
         const { titleSelectedStatus } = this.state;
         let newTitleSelectedStatus = {...titleSelectedStatus};
@@ -141,8 +144,10 @@ export default class Filter extends Component {
             selectedValues: newSelectedValues
         })
     }
+
     // 改变标题颜色
     onTitleClick = (type) => {
+        this.htmlBody.className = 'body-fixed';
         const {selectedValues, titleSelectedStatus} = this.state;
         let newTitleSelectedStatus = {...titleSelectedStatus};
 
