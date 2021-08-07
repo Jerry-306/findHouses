@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+// 导入Spring 组件
+import { Spring, animated } from 'react-spring'
 
 import FilterMore from '../FilterMore'
 import FilterPicker from '../FilterPicker'
@@ -245,16 +247,30 @@ export default class Filter extends Component {
         }
     }
 
+    // 渲染遮罩层
+    renderMask () {
+        const { openType } = this.state;
+        if (openType === '') {
+            return null
+        } else {
+            return (
+                <Spring from={{opacity: 0}} to={ {opacity: 1} } >
+                {
+                    props => {
+                        return <animated.div style={props} className={styles.mask} onClick={ () => this.onCancel(openType)} /> 
+                    } 
+                }
+            </Spring>
+            )
+        }
+    }
+
     render() {
         const {titleSelectedStatus, openType} = this.state;
         return (
             <div className={styles.root}>
                 {/* 遮罩层组件 */}
-                {
-                    openType === 'area' || openType === 'mode' || openType === 'price'|| openType === 'more'
-                    ? <div className={styles.mask} onClick={ () => this.onCancel(openType)} />
-                    : null
-                }
+                {this.renderMask()}
 
                 {/* 内容组件 */}
                 <div className={styles.content}>

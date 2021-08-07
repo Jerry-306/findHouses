@@ -163,10 +163,10 @@ export default class HouseList extends Component {
     }
 
     async componentDidMount () {
-        this.searchHouseList();
         const {label, value} = await getCurrentCity();
         this.label = label;
         this.value = value;
+        this.searchHouseList();
     }
 
     render() {
