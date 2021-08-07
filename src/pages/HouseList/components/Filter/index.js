@@ -95,14 +95,50 @@ export default class Filter extends Component {
             newTitleSelectedStatus[type] = false;
         }
 
+        // 重构筛选值
+        const newSelectedValues = {
+            // ES6 语法 this.state.selectedValues[type] 的属性值会覆盖之前 [type] 对应的属性值
+            ...this.state.selectedValues,
+            [type]: value
+        };
+        // console.log(newSelectedValues);
+        /*
+        area: (3) ["area", "AREA|a804fe00-df6a-6265", "AREA|4666b0ac-73ad-97ab"]
+        mode: ["false"]
+        more: (5) ["ROOM|d1a00384-5801-d5cd", "ROOM|20903ae0-c7bc-f2e2", "FLOOR|3", "FLOOR|2", "ORIEN|103fb3aa-e8b4-de0e"]
+        price: ["PRICE|2000"]
+        [[Prototype]]: Object
+        */
+
+        // 筛选条件数据
+        const filters = {};
+        const { area , mode, price, more} = newSelectedValues;
+
+        // 区域
+        const areaKey = area[0];
+        let areaValue = 'null';
+        if (area.length === 3) {
+            areaValue = area[2] !== 'null' ? area[2] : area[1];
+        }
+        filters[areaKey] = areaValue;
+
+        // 方式、租金
+        filters.mode = mode[0];
+        filters.price = price[0];
+
+        // 特色
+        filters.more = more.join(',');
+
+        // 调用父组件的方法，把筛选数据传递给父组件
+        this.props.onFilter(filters);
+
+        // 更新状态
         this.setState({
+            // 隐藏对话框
             openType: '',
+            // 更新标题高亮数据
             titleSelectedStatus: newTitleSelectedStatus,
-            selectedValues: {
-                // ES6 语法 this.state.selectedValues[type] 的属性值会覆盖之前 [type] 对应的属性值
-                ...this.state.selectedValues,
-                [type]: value
-            }
+            selectedValues: newSelectedValues
         })
     }
     // 改变标题颜色

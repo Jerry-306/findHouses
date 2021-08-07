@@ -1,5 +1,5 @@
 .root {
-    
+
 }
 
 /*顶部导航栏样式*/
@@ -23,4 +23,14 @@
 }
 .searchHeader :global(.serch) {
     height: 30px;
+}
+
+.houseItems {
+    padding: 0 15px;
+}
+.loading {
+    line-height: 120px;
+    text-align: center;
+    background-color: rgb(171, 224, 222);
+    height: 110px;
 }
