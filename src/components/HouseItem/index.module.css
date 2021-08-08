@@ -64,12 +64,14 @@
   .tag1 {
     color: #39becd;
     background: #e1f5f8;
-  }
-  .tag2 {
-    color: #3fc28c;
+}
+
+.tag2 {
+    color: #39cd72;
     background: #e1f5ed;
-  }
-  .tag3 {
-    color: #5aabfd;
+}
+
+.tag3 {
+    color: #cd398a;
     background: #e6f2ff;
-  }  
+}

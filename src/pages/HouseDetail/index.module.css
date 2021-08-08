@@ -1,0 +1,266 @@
+.root {
+    position: relative;
+    padding-bottom: 50px;
+    background: #f6f5f6;
+}
+.root :global(.am-navbar-title) {
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+}
+.root :global(.icon-back) {
+    color: rgb(255, 255, 255);
+}
+.root :global(.icon-share) {
+    font-size: 18px;
+}
+.navHeader {
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+}
+
+.slides {
+    z-index: 1;
+    height: 252px;
+}
+
+.slides :global(a) {
+    display: inline-block;
+    width: 100%;
+    height: 252px;
+}
+
+.slides :global(img) {
+    width: 100%;
+    height: 252px;
+    vertical-align: top;
+}
+
+
+/* 房屋基础信息 */
+.info {
+    padding: 15px;
+    background-color: white;
+}
+
+.infoTitle {
+    font-weight: normal;
+    font-size: 16px;
+    color: #333;
+}
+
+.tags {
+    position: relative;
+    margin: 10px 0;
+}
+
+.tag {
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 3px;
+    padding: 4px 5px;
+    margin-right: 5px;
+    line-height: 12px;
+}
+
+.tag1 {
+    color: #39becd;
+    background: #e1f5f8;
+}
+
+.tag2 {
+    color: #39cd72;
+    background: #e1f5ed;
+}
+
+.tag3 {
+    color: #cd398a;
+    background: #e6f2ff;
+}
+
+.tag4 {
+    color: #e6c01b;
+    background: #e6f2ff;
+}
+
+.infoPrice {
+    border-top: 1px solid #cecece;
+    border-bottom: 1px solid #cecece;
+    height: 80px;
+}
+
+.infoPriceItem {
+    text-align: center;
+    color: #999;
+}
+.infoPriceItem :global(div) {
+    height: 26px;
+    line-height: 26px;
+}
+
+.infoPriceItem :global(div:first-child) {
+    color: #fa5741;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.month {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.infoBasic {
+    display: flex;
+    line-height: 25px;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.title {
+    margin: 10px;
+    font-size: 14px;
+    color: rgb(192, 17, 17);
+    padding: 10px 0;
+}
+.map {
+    height: 250px;
+    position: relative;
+}
+.mapTitle {
+    padding: 5px;
+    font-size: 14px;
+    color: rgb(0, 150, 135);
+    line-height: 20px;
+}
+.mapContainer {
+    height: 230px;
+    margin: 5px 0 0 0;
+}
+.rect {
+    height: 30px;
+    line-height: 28px;
+    width: 100px;
+    padding: 0 3px;
+    border-radius: 5px;
+    position: absolute;
+    background: rgba(160, 29, 127, 0.89);
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.arrow {
+    display: block;
+    width: 0;
+    height: 0;
+    margin: 0 auto;
+    border: 4px solid transparent;
+    border-top-width: 4px;
+    border-top-color: rgb(12, 168, 147);
+}
+
+.housename {
+    display: inline-block;
+    width: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.about {
+    position: relative;
+    background: white;
+}
+.titleEmpty {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 14px;
+    color: rgb(136, 136, 136);
+}
+.set {
+    background: white;
+    margin: 10px 0;
+    padding: 0 10px;
+    line-height: 150%;
+}
+
+.houseTitle {
+    height: 30px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 16px;
+    color: rgb(197, 13, 121);
+}
+.contact {
+    position: relative;
+    display: flex;
+}
+
+.user {
+    flex: 2;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.user :global(img) {
+    width: 50px;
+    height: 50px;
+    margin: 10px 10px 0 0;
+}
+
+.userInfo {
+    padding: 15px 0 0 5px;
+    color: tomato;
+}
+.userAuth {
+    color: rgb(233, 180, 64);
+}
+.userMsg {
+    height: 30px;
+    width: 70px;
+    text-align: center;
+    color: rgb(0, 151, 136);
+    border: 1px solid rgb(0, 151, 136);
+    border-radius: 4px;
+    right: 15px;
+    align-self: center;
+    padding: 3px 10px;
+}
+.descText {
+    line-height: 1.6;
+    padding: 10px 0;
+    columns: #333;
+}
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    height: 50px;
+    margin-bottom: -50px;
+}
+.save {
+    background: white;
+    flex: 1;
+    color: rgb(0, 136, 122);
+    border-radius: 2px;
+    border: 1px solid rgb(0, 136, 122);
+}
+.consult {
+    background: rgb(89, 207, 182);
+    flex: 1;
+    border-radius: 2px;
+    border: 1px solid #333;
+}
+.reserve {
+    background: rgb(14, 117, 95);
+    flex: 1;
+    color: white;
+    border-radius: 2px;
+    border: 1px solid white;
+}

@@ -8,20 +8,23 @@ class MyNavBar extends Component {
     // 属性校验
     static propTypes = {
         children: PropTypes.string.isRequired,
-        onLeftClick: PropTypes.func
+        onLeftClick: PropTypes.func,
+        className: PropTypes.string,
+        rightContent: PropTypes.array
     }
 
     // 默认点击返回按钮事件
     defaultClick = () => this.props.history.goBack();
     render() {
-        const {children, onLeftClick} = this.props;
+        const {children, className, rightContent, onLeftClick} = this.props;
         return (
             <div>
                 <NavBar
-                    className={styles.navbar}
+                    className={[styles.navbar, className || ''].join(' ')}
                     mode="light"
                     icon={<i className="iconfont icon-back"/>}
                     onLeftClick={onLeftClick||this.defaultClick} 
+                    rightContent={rightContent}
                 >
                     {children}
                 </NavBar>

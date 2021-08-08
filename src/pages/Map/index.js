@@ -240,6 +240,7 @@ export default class Map extends Component {
                 key={item.houseCode}
                 // 图片地址
                 src={BASE_URL + item.houseImg}
+                onClick={() => this.props.history.push(`/detail/${item.houseCode}`)}
                 title={item.title}
                 desc={item.desc}
                 tags={item.tags}

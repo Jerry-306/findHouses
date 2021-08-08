@@ -90,6 +90,7 @@ export default class HouseList extends Component {
         return (
             <HouseItem 
                 key={key}
+                onClick={() => this.props.history.push(`/detail/${house.houseCode}`)}
                 style={style}
                 src={BASE_URL + house.houseImg}
                 title={house.title}
@@ -170,7 +171,6 @@ export default class HouseList extends Component {
     }
 
     render() {
-        const { count } = this.state;
         return (
             <div className={styles.root}>
                 {/* 搜索导航栏 */}
