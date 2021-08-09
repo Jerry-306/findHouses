@@ -4,7 +4,7 @@ import { Flex, WingBlank, WhiteSpace, Toast } from 'antd-mobile'
 
 import { Link } from 'react-router-dom'
 // 引入withFormik高阶组件，用于表单校验
-import { withFormik } from 'formik'
+import { withFormik, Form, Field, ErrorMessage } from 'formik'
 // 导入yup
 import * as yup from 'yup'
 
@@ -22,30 +22,7 @@ class Login extends Component {
         password: ''
     }
 
-    getUserName = (e) => {
-        this.setState({
-            username: e.target.value
-        })
-    }
-
-    getPassword = (e) => {
-        this.setState({
-            password: e.target.value
-        })
-    }
-
-    handleSubmit = async (e) => {
-        // 阻止表单提交默认行为
-        e.preventDefault();
-
-
-        
-    }
-
     render() {
-        // 通过props获取高阶组件传递的属性
-        const { values, handleSubmit, handleChange, errors, touched, handleBlur } = this.props;
-        // console.log(values, handleSubmit, handleChange);
         return (
             <div className={styles.root}>
                 <MyNavBar className={styles.navHeader} >
@@ -56,45 +33,31 @@ class Login extends Component {
                 {/* 登录表单 */}
                 {/* 左右留白 */}
                 <WingBlank>
-                    <form className={styles.form} onSubmit={handleSubmit}>
+                    <Form className={styles.form} >
                         <div className={styles.formItem}>
-                            <input
-                                className={styles.input}
-                                name="username"
-                                value={values.username}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                placeholder="请输入账号"
-                            />
+                            <Field 
+                                className={styles.input} 
+                                name="username" 
+                                placeholder="请输入账号" 
+                            ></Field>
                         </div>
-                        {
-                            errors.username && touched.username && (
-                                <div className={styles.error}>{errors.username}</div>
-                            )
-                        }
+                        <ErrorMessage className={styles.error} name="username" component="div"></ErrorMessage>
                         <div className={styles.formItem}>
-                            <input
-                                className={styles.input}
-                                name="password"
-                                value={values.password}
-                                onChange={handleChange}
-                                onBlur={handleBlur}  // 表单元素失去焦点时触发
+                            <Field 
+                                className={styles.input} 
+                                name="password" 
                                 type="password"
-                                placeholder="请输入密码"
-                            />
+                                placeholder="请输入密码" 
+                            ></Field>
                         </div>
-                        {
-                            errors.password && touched.password && (
-                                <div className={styles.error}>{errors.password}</div>
-                            )
-                        }
+                        <ErrorMessage className={styles.error} name="password" component="div"></ErrorMessage>
                         <div className={styles.formSubmit}>
                             <button
                                 className={styles.submit}
                                 type="submit"
                             >登  录</button>
                         </div>
-                    </form>
+                    </Form>
                     <Flex className={styles.backHome}>
                         <Flex.Item>
                             <Link to="/register">没有账号？去注册</Link>
