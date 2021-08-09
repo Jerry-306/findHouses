@@ -80,7 +80,7 @@ export default class Map extends Component {
     // 2 获取房源类型以及下级地图缩放级别
     async renderOverlays(id) {
         try {
-            Toast.loading('加载中...', 0, null, false);
+            Toast.loading('Loading...', 0, null, false);
             const res = await API.get(`/area/map?id=${id}`);
             Toast.hide();
             const data = res.data.body;
@@ -220,7 +220,7 @@ export default class Map extends Component {
     // 获取小区房源数据
     async getHousesList (id) {
         try {
-            Toast.loading('加载中...', 0, null, false); 
+            Toast.loading('Loading...', 0, null, false); 
             const res = await API.get(`/houses?cityId=${id}`);
             Toast.hide();
             this.setState({

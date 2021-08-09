@@ -262,9 +262,10 @@ export default class HouseDetail extends Component {
                 </div>
                 {/* 底部按钮 */}
                 <div className={styles.buttons}>
-                    <span className={styles.save}>收藏</span>
+                    <span className={styles.save}>
+                        <i className="iconfont icon-coll" />  收藏</span>
                     <span className={styles.consult}>在线咨询</span>
-                    <span className={styles.reserve}>预定</span>
+                    <span className={styles.reserve}>电话预定</span>
                 </div>
             </div>
         )

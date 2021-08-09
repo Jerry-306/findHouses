@@ -45,7 +45,7 @@ export default class HouseList extends Component {
             isLoading: true
         })
 
-        Toast.loading('加载中……', 0, null, false);
+        Toast.loading('Loading...', 0, null, false);
 
         const res = await API.get('/houses', {
             params: {
@@ -82,7 +82,7 @@ export default class HouseList extends Component {
         if ( !house ) {
             return (
                 <div key={key} style={style} className={styles.loading} >
-                    <p >加载中……</p>
+                    <p >Loading...</p>
                 </div>
             )
         }
