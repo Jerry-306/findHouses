@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 
-import {Carousel, Flex} from 'antd-mobile'
+import {Carousel, Flex, Modal, Toast} from 'antd-mobile'
 
 import MyNavBar from '../../components/MyNavBar'
 import HousePackage from '../../components/HousePackage'
 
 import { BASE_URL } from '../../utils/url'
+
+import { isAuth } from '../../utils/auth'
 
 import API from '../../utils/api'
 
@@ -23,6 +25,9 @@ const labelStyle = {
     color: 'rgb(255, 255, 255)',
     textAlign: 'center'
 }
+
+const alert = Modal.alert;
+
 export default class HouseDetail extends Component {
     state = {
         // 数据加载状态
@@ -54,7 +59,9 @@ export default class HouseDetail extends Component {
             houseCode: '',
             // 房屋描述
             description: ''
-        }
+        },
+        // 房源是否被收藏
+        isFavorite: false
     }
 
     // 获取房屋详情数据
@@ -80,6 +87,17 @@ export default class HouseDetail extends Component {
     componentDidMount () {
         window.scrollTo(0, 0);
         this.getHouseDetail();
+        this.checkFavorite();
+    }
+
+    // 渲染轮播图组件
+    renderSwipers () {
+        const { houseImg } = this.state.houseInfo;
+        return houseImg.map( item => (
+            <a key={item} href="http://www.alipay.com" >
+                <img src={BASE_URL + item} alt=""/>
+            </a>
+        ))
     }
 
     // 渲染地图 
@@ -110,18 +128,72 @@ export default class HouseDetail extends Component {
         map.addOverlay(label);
     }
 
-    // 渲染轮播图组件
-    renderSwipers () {
-        const { houseImg } = this.state.houseInfo;
-        return houseImg.map( item => (
-            <a key={item} href="http://www.alipay.com" >
-                <img src={BASE_URL + item} alt=""/>
-          </a>
-        ))
+    // 检查收藏状态
+    async checkFavorite () {
+        const isLogin = isAuth();
+        if (isLogin) {
+            // 从路由参数中获取房屋id
+            const { id } = this.props.match.params;
+            // 查询房屋是否被收藏
+            const res = await API.get(`/user/favorites/${id}`);
+
+            const { status, body } = res.data;
+            if (status === 200) {
+                // 请求成功
+                this.setState({
+                    isFavorite: body.isFavorite
+                })
+            }
+        } else {
+            return
+        }
     }
 
+    // 收藏
+    handleFavorite = async () => {
+        const isLogin = isAuth();
+        const { history, location, match } = this.props;
 
+        if (isLogin) {
+            // 已登录
+            const { isFavorite } = this.state;
+            const { id } = match.params;
 
+            if (isFavorite) {
+                // 取消收藏
+                const res = await API.delete(`/user/favorites/${id}`);
+
+                this.setState({
+                    isFavorite: false
+                });
+
+                if (res.data.status === 200) {
+                    Toast.info('已取消收藏', 1, null, false)
+                } else {
+                    Toast.info('请求超时，请重新登录', 2, null, false)
+                }
+            } else {
+                // 添加收藏
+                const res = await API.post(`/user/favorites/${id}`);
+
+                if (res.data.status === 200) {
+                    Toast.info('收藏成功', 1, null, false);
+                    this.setState({
+                        isFavorite: true
+                    });
+                } else {
+                    Toast.info('请求超时，请重新登录', 2, null, false)
+                }
+            }
+        } else {
+            // 未登录
+            return alert('提示', '该功能需要先登录，是否登录？', [
+                    { text: '否'},
+                    { text: '是', onPress: () => history.push('/login', {from: location}) }
+                ])
+        }
+
+    }
 
     render() {
         const { isLoading, 
@@ -136,7 +208,8 @@ export default class HouseDetail extends Component {
                     oriented,
                     supporting,
                     description
-                } } = this.state;
+                },
+                isFavorite } = this.state;
         return (
             <div className={styles.root}>
                 {/* 导航 */}
@@ -262,10 +335,19 @@ export default class HouseDetail extends Component {
                 </div>
                 {/* 底部按钮 */}
                 <div className={styles.buttons}>
-                    <span className={styles.favorate}>
-                        <i className="iconfont icon-coll" />  收藏</span>
+                    <span className={styles.favorite} onClick={this.handleFavorite} >
+                        <img 
+                            src={
+                                BASE_URL + ( isFavorite ? '/img/star.png' : '/img/unstar.png')
+                            }
+                            alt="收藏" 
+                        />
+                        {isFavorite ? '已收藏' : '收藏'}  
+                    </span>
                     <span className={styles.consult}>在线咨询</span>
-                    <span className={styles.reserve}>电话预定</span>
+                    <span className={styles.reserve}>
+                        <a href="tel: 183614999905">电话预定</a>
+                    </span>
                 </div>
             </div>
         )

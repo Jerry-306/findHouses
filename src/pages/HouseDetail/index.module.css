@@ -245,12 +245,17 @@
     height: 50px;
     margin-bottom: -50px;
 }
-.favorate {
+.favorite {
     background: white;
     flex: 1;
     color: #333;
     border-radius: 4px;
     border: 1px solid #333;
+}
+.favorite :global(img) {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
 }
 .consult {
     background: rgb(89, 207, 182);
@@ -264,4 +269,7 @@
     color: white;
     border-radius: 4px;
     border: 1px solid white;
+}
+.reserve :global(a) {
+    color: white;
 }
