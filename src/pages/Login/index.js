@@ -93,7 +93,13 @@ Login = withFormik({
             // 登录成功
             // 将tolen存储到本地
             localStorage.setItem('zfy_token', body.token);
-            props.history.goBack();
+            if (!props.location.state) {
+                // 用户直接点击登录按钮
+                props.history.goBack();
+            } else {
+                // 用户通过其他地方跳转至登录页面
+                props.history.replace(props.location.state.from.pathname)
+            }
         } else {
             // 登录失败
             Toast.info(description, 2, null, false);

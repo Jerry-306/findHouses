@@ -38,7 +38,6 @@
     vertical-align: top;
 }
 
-
 /* 房屋基础信息 */
 .info {
     padding: 15px;
@@ -135,7 +134,7 @@
     line-height: 20px;
 }
 .mapContainer {
-    height: 230px;
+    height: 210px;
     margin: 5px 0 0 0;
 }
 .rect {

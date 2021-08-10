@@ -64,12 +64,7 @@
     height: 20px;
     line-height: 20px;
     font-size: 11px;
-    color: rgb(155, 52, 78);
-}
-.edit :global(.icon-arrow) {
-    font-size: 6px;
-    color: rgb(155, 52, 78);
-    line-height: 20px;
+    color: rgb(163, 68, 91);
 }
 .edit :global(.am-button) {
     margin-top: 10px;

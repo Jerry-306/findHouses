@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Grid, Button, Modal } from 'antd-mobile'
 
 import { BASE_URL } from '../../utils/url'
-import { isAuth, getToken, removeToken } from '../../utils/auth'
+import { isAuth, removeToken } from '../../utils/auth'
 import styles from './index.module.css'
 import API from '../../utils/api'
 
@@ -65,11 +65,7 @@ export default class Profile extends Component {
             return
         } else {
             // 发送请求，获取用户数据
-            const res = await API.get('/user', {
-                headers: {
-                    authorization: getToken()
-                }
-            });
+            const res = await API.get('/user');
 
             if (res.data.status === 200) {
                 const { avatar, nickname } = res.data.body;
@@ -79,6 +75,11 @@ export default class Profile extends Component {
                         nickname
                     }
                 });
+            } else {
+                // token 失效
+                this.setState({
+                    isLogin: false
+                })
             }
         }
     }
@@ -89,11 +90,7 @@ export default class Profile extends Component {
             { text: '取消'},
             { text: '确定', onPress: async () => {
                 // 调用退出登录接口
-                await API.post('/user/logout', null, {
-                    headers: {
-                        authorization: getToken()
-                    }
-                })
+                await API.post('/user/logout')
 
                 // 移除本地token 
                 removeToken();
@@ -133,8 +130,7 @@ export default class Profile extends Component {
                                 <>
                                     <div className={styles.edit}>
                                         <span className={styles.arrow}>
-                                            编辑个人资料
-                                            <i className="iconfont icon-arrow" />
+                                            编辑个人资料▶
                                         </span>
                                         <Button type="primary" size="small" inline  
                                             onClick={this.logout}

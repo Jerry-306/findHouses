@@ -6,6 +6,7 @@ import Map from './pages/Map'
 import HouseDetail from './pages/HouseDetail'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import AuthRoute from './components/AuthRoute'
 
 export default class App extends Component {
   render() {
