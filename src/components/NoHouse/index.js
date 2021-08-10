@@ -5,7 +5,7 @@ import styles from './index.module.css'
 
 export default class NoHouse extends Component {
     static propTypes = {
-        children: PropTypes.string.isRequired
+        children: PropTypes.node.isRequired
     }
     render() {
         return (
