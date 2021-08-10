@@ -1,7 +1,7 @@
-const TOKEN_MAME = 'zfy_token';
+const CITY = 'zfy_city';
 
-const getCity = () => JSON.parse(localStorage.getItem(TOKEN_MAME)) 
+const getCity = () => JSON.parse(localStorage.getItem(CITY)) 
 
-const setCity = ( value ) => localStorage.setItem(TOKEN_MAME, value)
+const setCity = ( value ) => localStorage.setItem(CITY, value)
 
 export { getCity,  setCity }

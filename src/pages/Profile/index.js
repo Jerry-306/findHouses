@@ -13,7 +13,7 @@ const menus = [
         id: 1,
         name: '我的收藏',
         iconfont: 'icon-coll',
-        to: "/favorate" 
+        to: "/favorite" 
     },
     {
         id: 2,

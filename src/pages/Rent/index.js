@@ -6,7 +6,7 @@ import API from '../../utils/api'
 import { BASE_URL } from '../../utils/url'
 
 import HouseItem from '../../components/HouseItem'
-import MyNavBar from '../../components\/MyNavBar'
+import MyNavBar from '../../components/MyNavBar'
 import NoHouse from '../../components/NoHouse'
 
 import styles from './index.module.css'
@@ -63,8 +63,8 @@ export default class Rent extends Component {
         } else {
             return (
                 <NoHouse>
-                    您还没有发布房源
-                    <Link to="/rent/add" className={styles.link}>去发布房源吧~</Link>
+                    您还没有发布房源,
+                    <Link to="/rent/add" className={styles.link}>  去发布房源吧~</Link>
                 </NoHouse>
             )
         }
@@ -73,7 +73,7 @@ export default class Rent extends Component {
     render() {
         return (
             <div className={styles.root}>
-                <MyNavBar onLeftClick={this.props.history.goBack()}>房屋管理</MyNavBar>
+                <MyNavBar onLeftClick={ () => this.props.history.goBack()}>房屋管理</MyNavBar>
                 {this.renderHouseList()}
             </div>
         )

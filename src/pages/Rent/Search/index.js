@@ -21,10 +21,17 @@ export default class RentSearch extends Component {
     renderTips = () => {
         const { tipList } = this.state;
         return tipList.map( item => (
-            <li key={item.community} className={styles.tip}>
+            <div key={item.community} className={styles.tip} onClick={ () => this.onTipClick(item)}>
                 {item.communityName}
-            </li>
+            </div>
         ))
+    }
+
+    onTipClick = (item) => {
+        this.props.history.replace('/rent/add', {
+            name: item.communityName,
+            id: item.community
+        })
     }
 
     handleSearchText = ( value ) => {
@@ -41,7 +48,7 @@ export default class RentSearch extends Component {
         
         /* 避免重发送请求 */
         // 清除上一次定时器
-        clearTimeout(this.timerId)
+        clearTimeout(this.timerId);
 
         this.timerId =  setTimeout( async ()=> {
             // 获取小区数据
@@ -66,14 +73,12 @@ export default class RentSearch extends Component {
                 <SearchBar
                     value={ searchText }
                     placeholder="请输入小区名称"
-                    onSubmit={value => console.log(value, 'onSubmit')}
-                    onClear={value => console.log(value, 'onClear')}
-                    onFocus={() => console.log('onFocus')}
-                    onBlur={() => console.log('onBlur')}
-                    onCancel={() => console.log('onCancel')}
+                    onCancel={() => history.goBack()}
                     showCancelButton
                     onChange={this.handleSearchText}
                 />
+
+                <div className={styles.tips}>{this.renderTips()}</div>
             </div>
         )
     }

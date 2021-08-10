@@ -1,9 +1,7 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import { Modal } from 'antd-mobile'
 import { isAuth } from '../../utils/auth'
 
-const alert = Modal.alert;
 export default function AuthRoute({component: Component, ...rest }) {
     return <Route
             {...rest}
