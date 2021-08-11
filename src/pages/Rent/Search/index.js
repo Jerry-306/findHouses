@@ -20,6 +20,14 @@ export default class RentSearch extends Component {
     // 渲染搜素结果列表
     renderTips = () => {
         const { tipList } = this.state;
+
+        if (tipList.length === 0) {
+            return (
+                <div className={styles.empty}>
+                    这里空空如也，换个词试试吧~
+                </div>
+            )            
+        }
         return tipList.map( item => (
             <div key={item.community} className={styles.tip} onClick={ () => this.onTipClick(item)}>
                 {item.communityName}

@@ -240,7 +240,7 @@ export default class HouseDetail extends Component {
                         <Flex.Item>
                             {
                                 tags.map( (item, index) => (
-                                    <span key={item} className={[styles.tag, styles.tags, styles['tag' + (index+1)]].join(' ')}>
+                                    <span key={item} className={[styles.tag, styles.tags, styles['tag' + (index % 4 + 1)]].join(' ')}>
                                         {item}
                                     </span>
                                 ) )

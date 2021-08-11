@@ -65,9 +65,7 @@ export default class FilterMore extends Component {
         const {
             data: {
                 characteristic, floor, oriented, roomType
-            },
-            onCancel,
-            type
+            }
         } = this.props
         return (
             <div className={styles.root}>

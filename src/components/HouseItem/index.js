@@ -29,7 +29,7 @@ export default class HouseItem extends Component {
                     <div>
                         {/* ['近地铁', '随时看房'] */}
                         {tags.map((tag, index) => {
-                            const tagClass = 'tag' + (index + 1)
+                            const tagClass = 'tag' + (index % 4 + 1)
                             return (
                                 <span
                                     className={[styles.tag, styles[tagClass]].join(' ')}
