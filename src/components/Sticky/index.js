@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PropTypes, { resetWarningCache } from 'prop-types'
+import PropTypes from 'prop-types'
 import styles from './index.module.css'
 
 export default class Sticky extends Component {

@@ -10,6 +10,7 @@ import MyNavBar from '../../components/MyNavBar'
 import NoHouse from '../../components/NoHouse'
 
 import styles from './index.module.css'
+import { Toast } from 'antd-mobile'
 
 export default class Rent extends Component {
     state = {
@@ -19,8 +20,10 @@ export default class Rent extends Component {
 
     // 获取已发布房源列表信息
     async getHouseList () {
+        Toast.loading('Loading...', 0, null, false);
         const res = await API.get('/user/houses');
 
+        Toast.hide();
         const { status, body } = res.data;
         if (status === 200) {
             this.setState({

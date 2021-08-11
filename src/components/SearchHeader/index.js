@@ -6,7 +6,7 @@ import './index.css'
 
 class SearchHeader extends Component {
     static propTypes = {
-        currentCity: PropTypes.string.isRequired,
+        currentCity: PropTypes.string,
         className: PropTypes.string
     }
     render () {

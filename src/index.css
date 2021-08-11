@@ -30,3 +30,7 @@ ul {
 .body-fixed {
   overflow: hidden;
 }
+.loading {
+  padding-top: 100px;
+  text-align: center;
+}
