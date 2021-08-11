@@ -41,7 +41,6 @@ export default class Rent extends Component {
     renderHouseItem () {
         const { list } = this.state;
         const { history } = this.props;
-
         return list.map(item => (
             <HouseItem
                 key={item.houseCode}
@@ -59,7 +58,7 @@ export default class Rent extends Component {
         const { list } = this.state;
 
         if (list.length > 0) {
-            <div className={styles.houses}>{this.renderHouseItem()}</div>
+            return <div className={styles.houses}>{this.renderHouseItem()}</div>
         } else {
             return (
                 <NoHouse>

@@ -3,6 +3,8 @@ import { SearchBar } from 'antd-mobile'
 
 import API from '../../../utils/api'
 
+import NoHouse from '../../../components/NoHouse'
+
 import {getCity} from '../../../utils/city'
 
 import styles from './index.module.css'
@@ -23,9 +25,9 @@ export default class RentSearch extends Component {
 
         if (tipList.length === 0) {
             return (
-                <div className={styles.empty}>
+                <NoHouse>
                     这里空空如也，换个词试试吧~
-                </div>
+                </NoHouse>
             )            
         }
         return tipList.map( item => (

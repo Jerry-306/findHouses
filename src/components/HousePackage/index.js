@@ -55,7 +55,7 @@ const HOUSE_PACKAGE = [
     }
 ];
 
-export default class HousePackage extends Component {
+class HousePackage extends Component {
     state = {
         selectedNames: []
     }
@@ -67,7 +67,8 @@ export default class HousePackage extends Component {
 
         if (selectedNames.includes(name)) {
             let index = selectedNames.indexOf(name);
-            newSelectedNames = selectedNames.splice(index, 1);
+            selectedNames.splice(index, 1);
+            newSelectedNames = selectedNames;
         } else {
             newSelectedNames = [...selectedNames, name];
         }
@@ -81,8 +82,8 @@ export default class HousePackage extends Component {
     }
 
     renderItems () {
-        const {list} = this.props;
-        if (list.length > 0) {
+        const {list, select} = this.props;
+        if (list) {
             const values = HOUSE_PACKAGE.filter(item => list.includes(item.name));
             return values.map( item => {
                 return (
@@ -92,22 +93,31 @@ export default class HousePackage extends Component {
                     </div>
                 )
             })
-        } else {
+        } else if (select) {
             const { selectedNames } = this.state;
-            HOUSE_PACKAGE.map( item => {
+            return HOUSE_PACKAGE.map( item => {
                 const isActive = selectedNames.includes(item.name);
                 return (
-                    <div className={[styles.item, isActive ? styles.isActive : ''].join(' ')}>
-                        <i className={['iconfont', styles.icon, item.icon].join(' ')}>
+                    <div key={item.id} className={[styles.item, isActive ? styles.active : ''].join(' ')}
+                        onClick={() => this.toggleSelect(item.name)}
+                    >
+                        <i className={['iconfont', styles.icon, item.icon].join(' ')} />
                         {item.name}
-                        </i>
                     </div>
                 )
             })
+        } else {
+            return '啥也没传递'
         }
-
     }
+
     render() {
-        return <ul className={styles.root}>{this.renderItems()}</ul>
+        return <div className={styles.root}>{this.renderItems()}</div>
     }
 }
+
+HousePackage.defaultProps = {
+    onSelect: () => {}
+}
+
+export default HousePackage
