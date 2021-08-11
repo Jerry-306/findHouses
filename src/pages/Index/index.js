@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 // 导入轮播图组件、Flex组件
 import { Carousel, Flex, Grid, WingBlank } from 'antd-mobile'
-//  导入axios
-// import axios from 'axios'
-// 换成封装后的axios
 import API from '../../utils/api'
 
 // 导入环境变量URL

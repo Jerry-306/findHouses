@@ -32,21 +32,7 @@ const orientedData = [
     {label: "西南", value: "ORIEN|2354e89e-3918-9cef"},
     {label: "西北", value: "ORIEN|80795f1a-e32f-feb9"}
 ];
-// const characteristicData=[
-//     {label: "集中供暖", value: "CHAR|f56b9ad7-a97c-b28f"},
-//     {label: "双卫生间", value: "CHAR|51ae05f0-7c7a-c24b"},
-//     {label: "近地铁", value: "CHAR|76eb0532-8099-d1f4"},
-//     {label: "随时看房", value: "CHAR|ee11187b-a631-beef"},
-//     {label: "精装", value: "CHAR|1d9bf0be-284f-93dd"},
-//     {label: "公寓", value: "CHAR|2d9fb1b2-dbf9-eb64"},
-//     {label: "独立卫生间", value: "CHAR|c3d3e453-c3fa-d,4af"},
-//     {label: "押一付一", value: "CHAR|f838b575-9196-bf13,"},
-//     {label: "独立阳台", value: "CHAR|479e8f8a-f193-9605"},
-//     {label: "月租", value: "CHAR|3870eb95-3f80-e5f8"},
-//     {label: "限女生", value: "CHAR|014e0e46-2147-8785"},
-//     {label: "限男生", value: "CHAR|7121e024-499d-c929"},
-//     {label: "新上", value: "CHAR|41e8322b-3846-d721"}
-// ];
+
 const alert = Modal.alert;
 export default class RentAdd extends Component {
     constructor (props) {
@@ -112,7 +98,7 @@ export default class RentAdd extends Component {
                     });
                     houseImg = res.data.body.join('|');
                 }
-        
+                Toast.hide();
                 // 调用接口，发布房源
                 const res = await API.post('/user/houses', {
                     title,
@@ -126,7 +112,7 @@ export default class RentAdd extends Component {
                     size, 
                     floor
                 });
-                Toast.hide();
+                
                 if (res.data.status === 200) {
                     Toast.info('发布成功！', 2, null, false);
                     this.props.history.push('/rent')

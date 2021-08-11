@@ -15,15 +15,22 @@ import { Toast } from 'antd-mobile'
 export default class Rent extends Component {
     state = {
         // 出租房屋列表
-        list: []
+        list: [],
+        isLoading: false
     }
 
     // 获取已发布房源列表信息
     async getHouseList () {
+        this.setState({
+            isLoading: true
+        })
         Toast.loading('Loading...', 0, null, false);
         const res = await API.get('/user/houses');
 
         Toast.hide();
+        this.setState({
+            isLoading: false
+        })
         const { status, body } = res.data;
         if (status === 200) {
             this.setState({
@@ -58,17 +65,17 @@ export default class Rent extends Component {
     }
 
     renderHouseList () {
-        const { list } = this.state;
+        const { list, isLoading } = this.state;
 
-        if (list.length > 0) {
-            return <div className={styles.houses}>{this.renderHouseItem()}</div>
-        } else {
+        if (list.length === 0 && !isLoading) {
             return (
                 <NoHouse>
                     您还没有发布房源,
                     <Link to="/rent/add" className={styles.link}>  去发布房源吧~</Link>
                 </NoHouse>
             )
+        } else {
+            return <div className={styles.houses}>{this.renderHouseItem()}</div>
         }
     }
 

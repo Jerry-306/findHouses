@@ -1,5 +1,6 @@
 .root {
     margin-top: 20px;
+    background-color: white;
 }
 .btn {
     margin: 0 10px;
@@ -18,7 +19,7 @@
 }
 .ok {
     flex: 1;
-    background-color:  rgb(12, 151, 133);
+    background-color:  rgb(13, 155, 136);
     border: 1px solid rgb(212, 209, 209);
     color: white;
 }

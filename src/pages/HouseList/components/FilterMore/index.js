@@ -84,7 +84,7 @@ export default class FilterMore extends Component {
                     <div className={styles.child}>{this.renderFilters(characteristic)}</div>
                 </div>
 
-                    <FilterFooter className={styles.footer} cancelText='清除' onCancel={this.onCancel} onOk={this.onOk} />
+                    <FilterFooter className={styles.buttons} cancelText='清除' onCancel={this.onCancel} onOk={this.onOk} />
             </div>
         )
     }
