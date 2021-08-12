@@ -24,21 +24,37 @@ React核心库、百度地图API、create-react-app、axios、antd-mobile、reac
 
 ##### 项目截图
 
-![首页](img-folder/images/首页.jpg) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![城市选择](img-folder/images/城市选择.jpg)
+![首页](img-folder/images/首页.jpg)
 
-![地图找房](img-folder/images/地图找房1.jpg) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![地图找房](img-folder/images/地图找房2.jpg)
+![城市选择](img-folder/images/城市选择.jpg)
 
-![地图找房](img-folder/images/地图找房3.jpg) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![地图找房](img-folder/images/地图找房4.jpg)
+![地图找房](img-folder/images/地图找房1.jpg)
 
-![房源列表](img-folder/images/房源列表页面.jpg) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![房源筛选](img-folder/images/房屋筛选功能.jpg)
+![地图找房](img-folder/images/地图找房2.jpg)
 
-![筛选](img-folder/images/房屋筛选.jpg) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![房屋详情](img-folder/images/房屋详情1.jpg)
+![地图找房](img-folder/images/地图找房3.jpg)
 
-![房屋详情](img-folder/images/房屋详情2.jpg) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![登录](img-folder/images/登录.jpg)
+![地图找房](img-folder/images/地图找房4.jpg)
 
-![我的](img-folder/images/我的.jpg) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![我的收藏](img-folder/images/我的收藏.jpg)
+![房源列表](img-folder/images/房源列表页面.jpg)
 
-![发布房源](img-folder/images/发布房源.jpg) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![房源管理](img-folder/images/我的出租.jpg)
+![房源筛选](img-folder/images/房屋筛选功能.jpg)
+
+![筛选](img-folder/images/房屋筛选.jpg)
+
+![房屋详情](img-folder/images/房屋详情1.jpg)
+
+![房屋详情](img-folder/images/房屋详情2.jpg) 
+
+![登录](img-folder/images/登录.jpg)
+
+![我的](img-folder/images/我的.jpg) 
+
+![我的收藏](img-folder/images/我的收藏.jpg)
+
+![发布房源](img-folder/images/发布房源.jpg) 
+
+![房源管理](img-folder/images/我的出租.jpg)
 
 ![资讯](img-folder/images/最新资讯.jpg)
 
