@@ -40,7 +40,7 @@ React核心库、百度地图API、create-react-app、axios、antd-mobile、reac
 
 ![发布房源](img-folder/images/发布房源.jpg) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![房源管理](img-folder/images/我的出租.jpg)
 
-![资讯](img-folder/images/最新资讯.jpg) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![城市选择](img-folder/images/城市选择.jpg)
+![资讯](img-folder/images/最新资讯.jpg)
 
 ### 如何使用
 
