@@ -24,7 +24,7 @@ React核心库、百度地图API、create-react-app、axios、antd-mobile、reac
 
 ##### 项目截图
 
-![首页](https://gitee.com/jerry306/find-houses/blob/master/img-folder/images/%E9%A6%96%E9%A1%B5.jpg "首页.png")
+![首页](https://gitee.com/jerry306/find-houses/blob/master/img-folder/images/%E9%A6%96%E9%A1%B5.jpg)
 
 ### 如何使用
 
