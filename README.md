@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+ :star:  :star:  :star:  :star:  :star: :star:  :star:  :star:  :star:  :star:  :star:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 新产品发布推荐
 
-## Available Scripts
+现已推出 [ **萤火商城多端版V2.0** ]，新系统更轻量级、高性能、前后端分离，且支持微信小程序 + H5+ 公众号 + APP，依旧前后端源码完全开源！
 
-In the project directory, you can run:
+仓库地址：[https://gitee.com/xany/yoshop2.0](https://gitee.com/xany/yoshop2.0)
 
-### `yarn start`
+如果您没有多端需求，只想使用微信小程序 推荐使用 [ **萤火小程序商城v1.0** ]，稳定性更好，对服务器要求低，技术栈少，二次开发更简便
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+注：二者并非升级关系，因产品理念和技术架构完全不同，属于两套产品，可根据需求进行选择
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### ---------------------------------------------
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 找房源v1.0
 
-### `yarn build`
+##### 项目介绍
+找房源（移动web端）项目是基于 React 开发的移动端在线项目，采用模块化、工程化的设计思想，实现类似贝壳等APP的功能，解决用户寻找房源的需求。
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+##### 技术栈
+React核心库、百度地图API、create-react-app、axios、antd-mobile、react-virtualized、formik+yup、react-spring、编程式路由等
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+##### 项目演示
+- QQ交流：1976457550
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+##### 项目截图
+![输入图片说明](https://gitee.com/uploads/images/2018/0629/144738_39b279a7_597459.png "前端.png")
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+##### 项目功能
+## 在线找房
+通过百度地图查找房源；通过条件（如当前所在城市、交通、房租、房屋设施等）进 行查找
+## 城市选择
+通过城市选择模块可以切换城市，也可以定位到当前城市，不同城市有不同房源
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 登录模块
+提供用户注册、登录、查看个人信息、修改个人信息等功能，同时，登录之后，用户可以收藏房源，并可以在“我的”页面查看已收藏房源具体信息
+## 房屋详情模块
+该模块展示了房屋的具体信息，包括房屋租金、面积、配套设施、地理位置、房屋描述、特色、房主信息等，同时支持收藏（需登录后）与电话预约等功能
+## 房源发布
+该模块实现房源发布功能，你可以出租自己的房屋，上传房屋的相关信息，并在已发布房源页面查看发布的房源（该模块需要先登录）
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+##### 环境要求
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
