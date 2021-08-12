@@ -24,7 +24,7 @@ React核心库、百度地图API、create-react-app、axios、antd-mobile、reac
 
 ##### 项目截图
 
-![首页](img-folder/images/首页.jpg) &nbsp; ![城市选择](img-folder/images/城市选择.jpg)
+![首页](img-folder/images/首页.jpg) &nbsp;&nbsp;&nbsp;&nbsp; ![城市选择](img-folder/images/城市选择.jpg)
 
 ### 如何使用
 
