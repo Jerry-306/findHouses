@@ -3,19 +3,22 @@ import { Flex, WingBlank } from 'antd-mobile'
 import API from '../../utils/api'
 import {BASE_URL} from '../../utils/url'
 import MyNavBar from '../../components/MyNavBar'
+import { getCity } from '../../utils/city'
 
 import './index.css'
 
 export default class News extends Component {
     state = {
-        news: []
+        news: [],
+        cityId: ''
     }
 
     // 获取资讯数据
     async getNews () {
+        const { cityId } = this.state;
         const res = await API.get('/home/news', {
             params: {
-                area: 'AREA%7C88cff55c-aaa4-e2e0'
+                area: cityId
             }
         });
         this.setState({
@@ -45,7 +48,11 @@ export default class News extends Component {
         ))
     }
 
-    componentDidMount () {
+    async componentDidMount () {
+        const {value} = await getCity();
+        this.setState({
+            cityId: value
+        });
         this.getNews();
     }
     

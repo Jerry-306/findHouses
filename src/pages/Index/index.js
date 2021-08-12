@@ -53,7 +53,8 @@ export default class Index extends Component {
         // 资讯数据
         news: [],
         // 当前位置城市（默认是北京市）
-        currentCity: '北京'
+        currentCity: '北京',
+        cityId: ''
     }
 
     // 获取轮播图数组
@@ -67,9 +68,10 @@ export default class Index extends Component {
 
     // 获取租房小组数据
     async getGroups () {
+        const {cityId} = this.state;
         const res = await API.get('/home/groups', {
             params: {
-                area: 'AREA%7C88cff55c-aaa4-e2e0'
+                area: cityId
             }
         });
         this.setState({
@@ -79,9 +81,10 @@ export default class Index extends Component {
     
     // 获取资讯数据
     async getNews () {
+        const {cityId} = this.state;
         const res = await API.get('/home/news', {
             params: {
-                area: 'AREA%7C88cff55c-aaa4-e2e0'
+                area: cityId
             }
         });
         this.setState({
@@ -90,9 +93,10 @@ export default class Index extends Component {
     }
     // 获取当前定位城市
     async getCity() {
-        const result = await getCurrentCity();
+        const res = await getCurrentCity();
         this.setState({
-            currentCity: result.label
+            currentCity: res.label,
+            cityId: res.value
         })
     }
      

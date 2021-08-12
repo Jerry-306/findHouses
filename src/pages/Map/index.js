@@ -204,15 +204,8 @@ export default class Map extends Component {
         // 添加单击事件
         label.addEventListener('click', (e) => {
             this.getHousesList(id);
-            // // 获取当前被点击项
-            // console.log(e)
-            // const target = e.changedTouches[0];
-            // this.map.panBy(
-            //     window.innerWidth / 2 - target.clientX,
-            //     (window.innerHeight - 330) / 2 - target.clientY
-            // )
         })
-    
+
         // 添加覆盖物到地图中
         this.map.addOverlay(label)
     }
