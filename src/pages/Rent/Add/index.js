@@ -131,7 +131,7 @@ export default class RentAdd extends Component {
     }
 
     // 获取图片数据
-    handleHouseImg = (files, type, index) => {
+    handleHouseImg = (files) => {
         this.setState({
             tempSlides: files
         })
