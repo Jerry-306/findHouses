@@ -36,8 +36,3 @@
     background-color:rgb(12, 151, 133);
     color:white;
 }
-.buttons {
-    position: fixed;
-    z-index: 3;
-    bottom: 0;
-}

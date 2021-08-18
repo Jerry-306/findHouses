@@ -17,6 +17,8 @@ html, body {
 * {
   box-sizing: border-box;
   touch-action: pan-y;
+  padding: 0;
+  margin: 0;
 }
 
 h1,h2, h3, p, ul{
