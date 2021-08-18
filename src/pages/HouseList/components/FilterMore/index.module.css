@@ -1,4 +1,5 @@
 .root {
+    position: relative;
     padding-top: 14px;
     z-index: 1;
     height: 100%;
@@ -34,4 +35,9 @@
 .tagActive {
     background-color:rgb(12, 151, 133);
     color:white;
+}
+.buttons {
+    position: fixed;
+    z-index: 3;
+    bottom: 0;
 }

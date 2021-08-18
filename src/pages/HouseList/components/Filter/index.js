@@ -266,7 +266,7 @@ export default class Filter extends Component {
     }
 
     render() {
-        const {titleSelectedStatus, openType} = this.state;
+        const {titleSelectedStatus} = this.state;
         return (
             <div className={styles.root}>
                 {/* 遮罩层组件 */}
