@@ -64,7 +64,7 @@ React核心库、百度地图API、create-react-app、axios、antd-mobile、reac
 
 安装依赖
 ```
-yarn add
+yarn install
 ```
 
 启动项目
