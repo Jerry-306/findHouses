@@ -64,7 +64,16 @@
     height: 20px;
     line-height: 20px;
     font-size: 11px;
-    color: rgb(163, 68, 91);
+    color: rgb(196, 39, 130);
+}
+.arrow::after {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-top: 1px solid  rgb(196, 39, 130);
+    border-right: 1px solid  rgb(196, 39, 130);
+    transform: rotate(45deg);
 }
 .edit :global(.am-button) {
     margin-top: 10px;
@@ -76,14 +85,13 @@
 .menuItem {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin: 10px auto;
+    justify-content: space-around;
     font-size: 16px;
-    line-height: 16px;
+    line-height: 32px;
     color: rgb(0, 161, 108);
 }
 .menuItem :first-child {
-    height: 40px;
+    margin: 10px auto;
     font-size: 30px;
     line-height: 30px;
 }
@@ -97,5 +105,5 @@
 
 .forkMe :global(a) {
     font-size: 14px;
-    color: slateblue;
+    color: rgb(196, 39, 130);
 }

@@ -130,7 +130,7 @@ export default class Profile extends Component {
                                 <>
                                     <div className={styles.edit}>
                                         <span className={styles.arrow}>
-                                            编辑个人资料▶
+                                            编辑个人资料
                                         </span>
                                         <Button type="primary" size="small" inline  
                                             onClick={this.logout}
