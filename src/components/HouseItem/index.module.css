@@ -4,6 +4,7 @@
     box-sizing: border-box;
     justify-content: space-around;
     padding-top: 18px;
+    cursor: pointer;
     border-bottom: 1px solid #e5e5e5;
   }
   

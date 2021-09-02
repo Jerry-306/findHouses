@@ -1,12 +1,15 @@
 .root {
     position: relative;
     padding-top: 14px;
+    padding-bottom: 50px;
     z-index: 1;
-    height: 100%;
     width: 100%;
     background-color: white;
 }
-
+.tags {
+    overflow: scroll;
+    height: 100%;
+}
 .name {
     height: 35px;
     padding-left: 20px;
@@ -35,4 +38,10 @@
 .tagActive {
     background-color:rgb(12, 151, 133);
     color:white;
+}
+.buttons {
+    position: fixed;
+    width: 100%;
+    bottom: 50px;;
+    right: 0;
 }
