@@ -106,6 +106,8 @@ export default class HouseDetail extends Component {
         const map = new BMapGL.Map('map');
         const point = new BMapGL.Point(longitude, latitude);
         map.centerAndZoom(point, 17);
+        // 添加缩放控件
+        map.addControl(new BMapGL.ZoomControl());
 
         // 创建覆盖物
         const label = new BMapGL.Label('', {
