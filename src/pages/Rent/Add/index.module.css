@@ -1,5 +1,6 @@
 .root {
     padding-top: 45px;
+    margin-bottom: 50px;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -14,6 +15,9 @@
 .root :global(.am-list-header) {
     color: rgb(0, 139, 93);
     font-size: 20px;
+}
+.root :global(.am-textarea-control) {
+    margin-bottom: 50px;
 }
 .buttons {
     position: fixed;
