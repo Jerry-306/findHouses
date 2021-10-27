@@ -3,7 +3,7 @@
 ### 项目推荐
 
 
-仓库地址：[https://gitee.com/jerry306/find-houses](https://gitee.com/jerry306/find-houses)
+GitHub仓库地址：[https://github.com/Jerry-306/findHouses](https://github.com/Jerry-306/findHouses)
 
 
 ### 找房源v1.0
