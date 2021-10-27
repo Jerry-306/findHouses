@@ -23,7 +23,7 @@ class MyNavBar extends Component {
                     className={[styles.navbar, className || ''].join(' ')}
                     mode="light"
                     icon={<i className="iconfont icon-back"/>}
-                    onLeftClick={onLeftClick||this.defaultClick} 
+                    onLeftClick={onLeftClick || this.defaultClick} 
                     rightContent={rightContent}
                 >
                     {children}

@@ -7,7 +7,7 @@ const API = axios.create({
     baseURL: BASE_URL
 });
 
-// 使用sxios拦截器统一处理token
+// 使用axios拦截器统一处理token
 // 添加请求拦截器
 API.interceptors.request.use(config => {
     const { url } = config;
@@ -23,7 +23,7 @@ API.interceptors.request.use(config => {
     return config;
 });
 
-// 添加相应拦截器
+// 添加响应拦截器
 API.interceptors.response.use(res => {
     const { status } = res.data;
     if (status === 400) {

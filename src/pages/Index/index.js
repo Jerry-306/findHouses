@@ -103,17 +103,12 @@ export default class Index extends Component {
     // 渲染轮播图
     renderSwiper () {
         return this.state.swipers.map(item => (
-            <a
-              key={item.id}
-              href="http://www.alipay.com"
-              style={{ display: 'inline-block', width: '100%', height:212 }}
-            >
-                <img
-                    src={BASE_URL + item.imgSrc}
-                    alt=""
-                    style={{ width: '100%', verticalAlign: 'top' }}
-                />
-            </a>
+            <img
+                src={BASE_URL + item.imgSrc}
+                alt="首页图片"
+                key={item}
+                style={{ width: '100%', verticalAlign: 'top', height:212  }}
+            />
           ))
     }
 

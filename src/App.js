@@ -12,6 +12,7 @@ const RentAdd = lazy(() => import('./pages/Rent/Add'))
 const RentSearch = lazy(() => import('./pages/Rent/Search'))
 const MyFavorite = lazy(() => import('./pages/MyFavorite'))
 const AuthRoute = lazy(() => import('./components/AuthRoute'))
+const Search = lazy(() => import('./pages/Search'))
 
 export default class App extends Component {
   render() {
@@ -26,6 +27,7 @@ export default class App extends Component {
             <Route path="/detail/:id" component={HouseDetail} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
+            <Route path="/search" component={Search} />
 
             {/* 配置登录后才能访问的页面 */}
             <AuthRoute exact  path="/rent" component={Rent} />

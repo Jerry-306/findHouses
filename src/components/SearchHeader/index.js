@@ -26,7 +26,7 @@ class SearchHeader extends Component {
                     {/* 搜索表单 */}
                     <div
                         className="form"
-                        onClick={() => history.push('/home/list')}
+                        onClick={() => history.push('/search')}
                         >
                         <i className="iconfont icon-seach" />
                         <span className="text">请输入小区或地址</span>

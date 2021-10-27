@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
+
+import MyNavBar from '../../components/MyNavBar'
+
 import { SearchBar } from 'antd-mobile'
 
-import API from '../../../utils/api'
+import API from '../../utils/api'
 
-import MyNavBar from '../../../components/MyNavBar'
+import NoHouse from '../../components/NoHouse'
 
-import NoHouse from '../../../components/NoHouse'
-
-import {getCity} from '../../../utils/city'
+import {getCity} from '../../utils/city'
 
 import styles from './index.module.css'
 
-export default class RentSearch extends Component {
+export default class Search extends Component {
     cityId = getCity().value;
 
     timerId = null;
@@ -40,7 +41,7 @@ export default class RentSearch extends Component {
     }
 
     onTipClick = (item) => {
-        this.props.history.replace('/rent/add', {
+        this.props.history.replace('/home/list', {
             name: item.communityName,
             id: item.community
         })
@@ -78,19 +79,16 @@ export default class RentSearch extends Component {
     }
 
     render() {
-        const { history } = this.props;
         const { searchText } = this.state;
         return (
             <div className={styles.root}> 
-                <MyNavBar>搜索小区</MyNavBar>
+                <MyNavBar>搜索</MyNavBar>
                 <SearchBar
                     value={ searchText }
                     placeholder="请输入小区名称"
-                    onCancel={() => history.goBack()}
                     showCancelButton
                     onChange={this.handleSearchText}
                 />
-
                 <div className={styles.tips}>{this.renderTips()}</div>
             </div>
         )

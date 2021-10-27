@@ -94,9 +94,7 @@ export default class HouseDetail extends Component {
     renderSwipers () {
         const { houseImg } = this.state.houseInfo;
         return houseImg.map( item => (
-            <a key={item} href="http://www.alipay.com" >
-                <img src={BASE_URL + item} alt=""/>
-            </a>
+            <img key={item} src={BASE_URL + item} alt="房屋图片"/>
         ))
     }
 
