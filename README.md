@@ -43,7 +43,7 @@ React核心库、百度地图API、create-react-app、axios、antd-mobile、reac
 
 ![筛选](img-folder/images/房屋筛选.jpg)
 
-![小区](img-folder/images/搜索小区.png)
+![小区](img-folder/images/搜素小区.png)
 
 ![房屋详情](img-folder/images/房屋详情.jpg)
 
