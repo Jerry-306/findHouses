@@ -51,7 +51,7 @@ React核心库、百度地图API、create-react-app、axios、antd-mobile、reac
 
 ![登录](img-folder/images/登录.jpg)
 
-![注册](img-folder/images/用户注册.png)
+![注册](img-folder/images/账号注册.png)
 
 ![我的](img-folder/images/我的.jpg) 
 
