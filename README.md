@@ -45,9 +45,9 @@ React核心库、百度地图API、create-react-app、axios、antd-mobile、reac
 
 ![搜索小区](img-folder/images/搜索小区.png)
 
-![房屋详情](img-folder/images/房屋详情1.jpg)
+![房屋详情](img-folder/images/房屋详情.jpg)
 
-![房屋详情](img-folder/images/房屋详情2.png) 
+![房屋详情](img-folder/images/房屋详情1.jpg) 
 
 ![登录](img-folder/images/登录.jpg)
 
