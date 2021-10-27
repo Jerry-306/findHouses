@@ -47,7 +47,7 @@ React核心库、百度地图API、create-react-app、axios、antd-mobile、reac
 
 ![房屋详情](img-folder/images/房屋详情1.jpg)
 
-![房屋详情](img-folder/images/房屋详情2.jpg) 
+![房屋详情](img-folder/images/房屋详情2.png) 
 
 ![登录](img-folder/images/登录.jpg)
 
@@ -57,9 +57,9 @@ React核心库、百度地图API、create-react-app、axios、antd-mobile、reac
 
 ![我的收藏](img-folder/images/我的收藏.jpg)
 
-![发布房源](img-folder/images/发布房源.jpg) 
+![发布房源](img-folder/images/发布房源.png) 
 
-![房源出租](img-folder/images/我的出租.png)
+![房源出租](img-folder/images/我的出租.jpg)
 
 ![资讯](img-folder/images/最新资讯.jpg)
 
