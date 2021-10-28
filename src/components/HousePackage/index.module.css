@@ -18,7 +18,8 @@
     height: 70px;
     width: 20%;
     font-size: 14px;
-    color: rgb(85, 85, 85)
+    color: rgb(85, 85, 85);
+    border-radius: 6px;
 }
 
 .icon {
@@ -27,4 +28,5 @@
 
 .active {
     color: rgb(0, 139, 93);
+    border: 1px solid rgb(0, 139, 93);
 }
