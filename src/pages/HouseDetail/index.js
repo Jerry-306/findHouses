@@ -64,6 +64,10 @@ export default class HouseDetail extends Component {
         isFavorite: false
     }
 
+    closed = () => {
+        Toast.info('暂未开通该功能', 2, null, false)
+    }
+
     // 获取房屋详情数据
     async getHouseDetail () {
         const { id } = this.props.match.params;
@@ -215,7 +219,7 @@ export default class HouseDetail extends Component {
                 {/* 导航 */}
                 <MyNavBar
                     className={styles.navHeader}
-                    rightContent={[<i key="share" className="iconfont icon-share" />]}
+                    rightContent={[<i key="share" className="iconfont icon-share" onClick={this.closed} />]}
                 >
                     { community }
                 </MyNavBar>
@@ -344,7 +348,7 @@ export default class HouseDetail extends Component {
                         />
                         {isFavorite ? '已收藏' : '收藏'}  
                     </span>
-                    <span className={styles.consult}>在线咨询</span>
+                    <span className={styles.consult} onClick={this.closed}>在线咨询</span>
                     <span className={styles.reserve}>
                         <a href="tel: 183614999905">电话预定</a>
                     </span>

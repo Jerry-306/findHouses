@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { Grid, Button, Modal } from 'antd-mobile'
+import { Grid, Button, Modal, Toast } from 'antd-mobile'
 
 import { BASE_URL } from '../../utils/url'
 import { isAuth, removeToken } from '../../utils/auth'
@@ -106,6 +106,10 @@ export default class Profile extends Component {
             } }
         ])
     }
+
+    closed = () => {
+        Toast.info('该功能已关闭', 2, null, false)
+    }
     render() {
         const { history } = this.props;
         const { isLogin, userInfo: { avatar, nickname } } = this.state;
@@ -129,7 +133,7 @@ export default class Profile extends Component {
                                 isLogin ? 
                                 <>
                                     <div className={styles.edit}>
-                                        <span className={styles.arrow}>
+                                        <span className={styles.arrow} onClick={this.closed}>
                                             编辑个人资料
                                         </span>
                                         <Button type="primary" size="small" inline  
@@ -161,7 +165,7 @@ export default class Profile extends Component {
                             </Link>
 
                             ) : (
-                                <div className={styles.menuItem}>
+                                <div className={styles.menuItem} onClick={this.closed}>
                                     <i className={`iconfont ${item.iconfont}`} />
                                     <span>{item.name}</span>
                                 </div>
