@@ -1,7 +1,7 @@
 import React, { Component, lazy, Suspense } from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
 import Home from './pages/Home'
-
+// 懒加载
 const CityList = lazy(() => import('./pages/CityList'))
 const Map = lazy(() => import('./pages/Map'))
 const HouseDetail = lazy(() => import('./pages/HouseDetail')) 
