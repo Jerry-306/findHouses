@@ -13,7 +13,7 @@ GitHub仓库地址：[https://github.com/Jerry-306/findHouses](https://github.co
 在线演示地址：[点我试试看](https://jerry-306.github.io)
 
 #### 项目介绍
-找房源（移动web端）项目是基于 <font color=red>React</font> 开发的移动端在线项目，采用模块化、组件化、工程化的设计思想，实现类似贝壳等APP的功能，解决用户寻找房源的需求。
+找房源（移动web端）项目是基于 <font color='red'>React</font> 开发的移动端在线项目，采用模块化、组件化、工程化的设计思想，实现类似贝壳等APP的功能，解决用户寻找房源的需求。
 
 
 #### 技术栈
