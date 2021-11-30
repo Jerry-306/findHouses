@@ -1,18 +1,11 @@
 import React, { Component } from 'react'
-
 import {Carousel, Flex, Modal, Toast} from 'antd-mobile'
-
 import MyNavBar from '../../components/MyNavBar'
 import HousePackage from '../../components/HousePackage'
-
 import { BASE_URL } from '../../utils/url'
-
 import { isAuth } from '../../utils/auth'
-
 import API from '../../utils/api'
-
 import styles from './index.module.css'
-
 
 const BMapGL = window.BMapGL;
 // 覆盖物样式
@@ -54,7 +47,7 @@ export default class HouseDetail extends Component {
                 longitude: '116.529466'
             },
             // 房屋配套
-            supporting : [],
+            supporting: [],
             // 房屋标识
             houseCode: '',
             // 房屋描述
@@ -64,6 +57,7 @@ export default class HouseDetail extends Component {
         isFavorite: false
     }
 
+    // 功能已关闭
     closed = () => {
         Toast.info('暂未开通该功能', 2, null, false)
     }
@@ -77,15 +71,35 @@ export default class HouseDetail extends Component {
         })
 
         const res = await API.get(`/houses/${id}`);
-        // console.log(res);
         this.setState({
             houseInfo: res.data.body,
             isLoading: false
         })
 
         // 获取数据，渲染地图
-        const { community, coord} =res.data.body;
+        const { community, coord} = res.data.body;
         this.renderMap(community, coord);
+    }
+
+    // 检查收藏状态
+    async checkFavorite () {
+        const isLogin = isAuth();
+        if (isLogin) {
+            // 从路由参数中获取房屋id
+            const { id } = this.props.match.params;
+            // 查询房屋是否被收藏
+            const res = await API.get(`/user/favorites/${id}`);
+
+            const { status, body } = res.data;
+            if (status === 200) {
+                // 请求成功
+                this.setState({
+                    isFavorite: body.isFavorite
+                })
+            }
+        } else {
+            return
+        }
     }
 
     componentDidMount () {
@@ -132,27 +146,6 @@ export default class HouseDetail extends Component {
         map.addOverlay(label);
     }
 
-    // 检查收藏状态
-    async checkFavorite () {
-        const isLogin = isAuth();
-        if (isLogin) {
-            // 从路由参数中获取房屋id
-            const { id } = this.props.match.params;
-            // 查询房屋是否被收藏
-            const res = await API.get(`/user/favorites/${id}`);
-
-            const { status, body } = res.data;
-            if (status === 200) {
-                // 请求成功
-                this.setState({
-                    isFavorite: body.isFavorite
-                })
-            }
-        } else {
-            return
-        }
-    }
-
     // 收藏
     handleFavorite = async () => {
         const isLogin = isAuth();
@@ -174,7 +167,7 @@ export default class HouseDetail extends Component {
                 if (res.data.status === 200) {
                     Toast.info('已取消收藏', 1, null, false)
                 } else {
-                    Toast.info('请求超时，请重新登录', 2, null, false)
+                    Toast.info('请求超时，请稍后再试', 2, null, false)
                 }
             } else {
                 // 添加收藏
@@ -186,7 +179,7 @@ export default class HouseDetail extends Component {
                         isFavorite: true
                     });
                 } else {
-                    Toast.info('请求超时，请重新登录', 2, null, false)
+                    Toast.info('请求超时，请稍后再试', 2, null, false)
                 }
             }
         } else {
@@ -196,7 +189,6 @@ export default class HouseDetail extends Component {
                     { text: '是', onPress: () => history.push('/login', {from: location}) }
                 ])
         }
-
     }
 
     render() {
