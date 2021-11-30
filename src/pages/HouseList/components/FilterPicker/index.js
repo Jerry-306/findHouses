@@ -4,8 +4,6 @@ import {PickerView} from 'antd-mobile'
 
 import FilterFooter from '../../../../components/FilterFooter'
 
-import styles from './index.module.css'
-
 export default class FilterPicker extends Component {
     state = {
         value: this.props.ddefaultValue
