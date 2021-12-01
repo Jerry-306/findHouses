@@ -1,4 +1,17 @@
- :star:  :star:  :star:  :star:  :star: :star:  :star:  :star:  
+<div align="center">
+    <h1>找房源</h1>
+    <img src="https://icon.itwmw.com/badge/dynamic/json?label=&query=star&url=https%3A%2F%2Fwww.itwmw.com%2Ftools%2Fgitee.php%3Fname%3Dwe7coreteam%2Fw7-engine-validate&logo=gitee&logoColor=fff&labelColor=c72e34&suffix=%20Stars&color=383d48" alt="Stars"/>
+    <img src="https://icon.itwmw.com/badge/dynamic/json?label=&query=fork&url=https%3A%2F%2Fwww.itwmw.com%2Ftools%2Fgitee.php%3Fname%3Dwe7coreteam%2Fw7-engine-validate&logo=gitee&logoColor=fff&labelColor=c72e34&suffix=%20Forks&color=383d48" alt="Forks"/>
+    <div>
+        <img src="https://icon.itwmw.com/badge/License-Apache--2.0-blue" alt="License" />
+        <img src="https://icon.itwmw.com/badge/PHP-%5E7.2.5%7C%5E8.0%7C%5E8.1-blue?logo=php&logoColor=violet" alt="PHP Version Support" />
+        <img src="https://app.fossa.com/api/projects/custom%2B27665%2Fgitee.com%2Fwe7coreteam%2Fw7-engine-validate.svg?type=shield" alt="FOSSA Status"/>
+        <img src="https://icon.itwmw.com/badge/Test%20Coverage-100%25-brightgreen" alt="Tests" />
+        <img src="https://icon.itwmw.com/packagist/dt/w7/engine-validate?style=social&logo=packagist" alt="Download" />
+    </div>
+</div> 
+
+:star:  :star:  :star:  :star:  :star: 
 
 ### 项目推荐
 
