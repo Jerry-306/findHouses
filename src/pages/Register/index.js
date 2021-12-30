@@ -1,15 +1,11 @@
 import React, { Component } from 'react'
-
 import { WingBlank, WhiteSpace, Toast, Modal } from 'antd-mobile'
-
 // 引入withFormik高阶组件，用于表单校验
 import { withFormik, Form, Field, ErrorMessage } from 'formik'
 // 导入yup
 import * as yup from 'yup'
-
 import API from '../../utils/api'
 import MyNavBar from '../../components/MyNavBar'
-
 import styles from './index.module.css'
 
 // 校验规则

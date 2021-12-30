@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
 
 import { Link } from 'react-router-dom'
-
 import API from '../../utils/api'
 import { BASE_URL } from '../../utils/url'
-
 import HouseItem from '../../components/HouseItem'
 import MyNavBar from '../../components/MyNavBar'
 import NoHouse from '../../components/NoHouse'
-
 import styles from './index.module.css'
 import { Toast } from 'antd-mobile'
 

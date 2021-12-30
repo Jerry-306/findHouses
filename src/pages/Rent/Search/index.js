@@ -1,14 +1,9 @@
 import React, { Component } from 'react'
 import { SearchBar } from 'antd-mobile'
-
 import API from '../../../utils/api'
-
 import MyNavBar from '../../../components/MyNavBar'
-
 import NoHouse from '../../../components/NoHouse'
-
-import {getCity} from '../../../utils/city'
-
+import { getCity } from '../../../utils/city'
 import styles from './index.module.css'
 
 export default class RentSearch extends Component {

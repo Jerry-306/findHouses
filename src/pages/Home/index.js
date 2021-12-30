@@ -1,11 +1,12 @@
-import React, { Component, lazy } from 'react'
-import {TabBar} from 'antd-mobile'
-import {Redirect, Route, Switch} from 'react-router-dom'
-import './index.css'
-import Index from '../Index'
-const News = lazy(() => import('../News'))
-const HouseList  = lazy(() => import('../HouseList'))
-const Profile = lazy(() => import('../Profile'))
+import React, { Component, lazy } from 'react';
+import {TabBar} from 'antd-mobile';
+import {Redirect, Route, Switch} from 'react-router-dom';
+import './index.css';
+import Index from '../Index';
+
+const News = lazy(() => import('../News'));
+const HouseList  = lazy(() => import('../HouseList'));
+const Profile = lazy(() => import('../Profile'));
 
 // tabbar 数据
 const tabItems = [
@@ -33,7 +34,7 @@ const tabItems = [
         icon: 'icon-my',
         path: '/home/profile'
     }
-]
+];
 
 export default class Home extends Component {
     state = {

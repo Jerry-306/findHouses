@@ -1,13 +1,11 @@
-import React, { Component } from 'react'
-// import axios from 'axios'
-import API from '../../utils/api'
-import {Link} from 'react-router-dom'
-import {Toast} from 'antd-mobile'
-
-import {BASE_URL} from '../../utils/url'
-import MyNavBar from '../../components/MyNavBar'
-import HouseItem from '../../components/HouseItem'
-import styles from './index.module.css'
+import React, { Component } from 'react';
+import API from '../../utils/api';
+import { Link } from 'react-router-dom';
+import { Toast } from 'antd-mobile';
+import { BASE_URL } from '../../utils/url';
+import MyNavBar from '../../components/MyNavBar';
+import HouseItem from '../../components/HouseItem';
+import styles from './index.module.css';
 
 // 覆盖物样式
 const labelStyle = {
@@ -18,7 +16,7 @@ const labelStyle = {
     fontSize: '10px',
     color: 'rgb(255, 255, 255)',
     textAlign: 'center'
-}
+};
 
 const BMapGL = window.BMapGL;
 export default class Map extends Component {
@@ -150,7 +148,7 @@ export default class Map extends Component {
         const label = new BMapGL.Label('', {
             position: point,
             offset: new BMapGL.Size(-25, -25)
-        })
+        });
 
         // 设置房源覆盖物内容
         label.setContent(`
@@ -158,7 +156,7 @@ export default class Map extends Component {
                 <p class="${styles.name}">${name}</p>
                 <p>${count}套</p>
             </div>
-        `)
+        `);
 
         // 设置样式
         label.setStyle(labelStyle);
@@ -176,7 +174,7 @@ export default class Map extends Component {
                 // 清除当前覆盖物信息
                 this.map.clearOverlays()
             }, 0)
-        })
+        });
         // 添加覆盖物到地图中
         this.map.addOverlay(label);
     }
@@ -187,7 +185,7 @@ export default class Map extends Component {
         const label = new BMapGL.Label('', {
             position: point,
             offset: new BMapGL.Size(-50, -28)
-        })
+        });
     
         // 设置房源覆盖物内容
         label.setContent(`
@@ -196,7 +194,7 @@ export default class Map extends Component {
                 <span class="${styles.housenum}">${count}套</span>
                 <i class="${styles.arrow}"></i>
             </div>
-        `)
+        `);
     
         // 设置样式
         label.setStyle(labelStyle);
@@ -204,10 +202,10 @@ export default class Map extends Component {
         // 添加单击事件
         label.addEventListener('click', (e) => {
             this.getHousesList(id);
-        })
+        });
 
         // 添加覆盖物到地图中
-        this.map.addOverlay(label)
+        this.map.addOverlay(label);
     }
 
     // 获取小区房源数据
@@ -220,7 +218,7 @@ export default class Map extends Component {
                 housesList: res.data.body.list,
                 // 展示房源列表
                 isShowList: true
-            })
+            });
         } catch (error) {
             Toast.hide();
         }

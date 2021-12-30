@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import {Flex} from 'antd-mobile'
+import { Flex } from 'antd-mobile'
 import PropTypes from 'prop-types'
 import styles from './index.module.css'
-
 
 export default class FilterFooter extends Component {
 

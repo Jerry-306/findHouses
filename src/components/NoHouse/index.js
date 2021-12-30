@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import {BASE_URL} from '../../utils/url'
+import { BASE_URL } from '../../utils/url'
 import styles from './index.module.css'
 
 export default class NoHouse extends Component {

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import {AutoSizer, List} from 'react-virtualized'
-import MyNavBar from '../../components/MyNavBar'
-import {getCurrentCity} from '../../utils'
+import {AutoSizer, List} from 'react-virtualized';
+import MyNavBar from '../../components/MyNavBar';
+import {getCurrentCity} from '../../utils';
+import API from '../../utils/api';
 import './index.css';
 
 // 城市数据格式化
@@ -53,11 +53,11 @@ export default class CityList extends Component {
     }
     // 获取城市列表数据
     async getCityList () {
-        const res = await axios.get('http://localhost:8009/area/city?level=1');
+        const res = await API.get('/area/city?level=1');
         const {cityList, cityIndex}  = formatCityData(res.data.body);
 
         // 获取热门城市,并添加至数据中
-        const hotCities = await axios.get('http://localhost:8009/area/hot');
+        const hotCities = await API.get('/area/hot');
         cityList['hot'] = hotCities.data.body;
         cityIndex.unshift('hot');     
         

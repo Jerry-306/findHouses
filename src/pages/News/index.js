@@ -4,7 +4,6 @@ import API from '../../utils/api'
 import {BASE_URL} from '../../utils/url'
 import MyNavBar from '../../components/MyNavBar'
 import { getCity } from '../../utils/city'
-
 import './index.css'
 
 export default class News extends Component {

@@ -4,7 +4,6 @@ import {Flex} from 'antd-mobile'
 
 import styles from './index.module.css'
 
-
 const titleList = [
     {title: '区域', type: 'area'},
     {title: '方式', type: 'mode'},

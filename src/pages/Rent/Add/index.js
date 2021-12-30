@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import { List,  InputItem, Picker, ImagePicker, TextareaItem, Modal, Toast } from 'antd-mobile'
-
 import HousePackage from '../../../components/HousePackage'
 import MyNavBar from '../../../components/MyNavBar'
 import FilterFooter from '../../../components/FilterFooter'
-
 import API from '../../../utils/api'
 import styles from './index.module.css'
 
