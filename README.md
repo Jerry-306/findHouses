@@ -4,11 +4,10 @@
 
 :star:  :star:  :star:  :star:  :star: 
 
-### 项目推荐
+### 特别提醒
+该项目目前已升级为2.0版本，所有页面和组件均采用**函数式组件**写法和**React Hooks**, 新版本的代码请移步至本人[Gitee 仓库](https://gitee.com/jerry306/find-houses)
 
-
-Gitee仓库地址：[https://gitee.com/jerry306/find-houses](https://gitee.com/jerry306/find-houses)
-
+有关 React **函数式组件** 和 **React Hook** 的更多描述，请访问[官方文档](https://zh-hans.reactjs.org/docs/hooks-intro.html).
 
 ### 找房源v1.0
 
